@@ -15,10 +15,18 @@ all_state = data.state.to_list()
 
 guessed_state = []
 while len(guessed_state) < 50:
-    answer_state = screen.textinput(title=f"{len(guessed_state)} The State", prompt="what's another state 's name").title()
+    answer_state = screen.textinput(title=f"{len(guessed_state)} The State",
+                                    prompt="what's another state 's name").title()
     # replacing screen.exitonclick() to turtle.mainloop() to screen onn
 
     if answer_state == "Exit":
+        missing_state = []
+        for state in all_state:
+            if state not in guessed_state:
+                missing_state.append(state)
+        print(missing_state)
+        new_data = pd.DataFrame(missing_state)
+        new_data.to_csv("reset_of_state.csv")
         break
 
     if answer_state in all_state:
@@ -30,4 +38,8 @@ while len(guessed_state) < 50:
         t.goto(int(state_data.x), int(state_data.y))
         t.write(state_data.state.item())  # item will give first element in pandas series
 
-#turtle.mainloop() we dont need this code if we enter ecit
+# turtle.mainloop() we dont need this code if we enter ecit
+
+# state to learn csv
+
+
