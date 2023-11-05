@@ -1,5 +1,5 @@
 import turtle
-
+import pandas as pd
 screen = turtle.Screen()
 screen.title("U.S.State Game")
 
@@ -9,8 +9,9 @@ screen.addshape(image)
 
 turtle.shape(image)  # available to tutle to use
 
-answer_state = screen.textinput(title="Guess The State", prompt="what's another state 's name")
-print(answer_state)
+data = pd.read_csv("50_states.csv")
 
+
+answer_state = screen.textinput(title="Guess The State", prompt="what's another state 's name")
 # replacing screen.exitonclick() to turtle.mainloop() to screen onn
 turtle.mainloop()
