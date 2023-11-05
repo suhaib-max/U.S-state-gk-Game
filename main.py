@@ -10,4 +10,6 @@ screen.addshape(image)
 turtle.shape(image)  # available to tutle to use
 
 
-screen.exitonclick()
+
+# replacing screen.exitonclick() to turtle.mainloop() to screen onn
+turtle.mainloop()
