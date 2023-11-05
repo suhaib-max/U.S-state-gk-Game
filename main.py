@@ -18,6 +18,9 @@ while len(guessed_state) < 50:
     answer_state = screen.textinput(title=f"{len(guessed_state)} The State", prompt="what's another state 's name").title()
     # replacing screen.exitonclick() to turtle.mainloop() to screen onn
 
+    if answer_state == "Exit":
+        break
+
     if answer_state in all_state:
         guessed_state.append(answer_state)
         t = turtle.Turtle()
@@ -27,4 +30,4 @@ while len(guessed_state) < 50:
         t.goto(int(state_data.x), int(state_data.y))
         t.write(state_data.state.item())  # item will give first element in pandas series
 
-turtle.mainloop()
+#turtle.mainloop() we dont need this code if we enter ecit
